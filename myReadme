@@ -1,0 +1,14 @@
+emotion
+@mui/material // @mui/styled-engine-sc // material/icons
+react-router-dom
+react-redux // @reduxjs/toolkit // redux-persistor(para que se mantenga la sesiona ctiva en caso de salir y entrar la pagina hasta un tiempo determinado creo.)
+axios --> para el axios.create ( No se cual ees el paralelo en fetch )
+
+-------------------
+Para hacer peticiones al servidor, siendo estos distintos puertos, uso la configuracion de proxy.
+Si no me da error de CORS
+AGREGO AL "PACKAGE.JSON":
+"proxy": "http://localhost:5000" (NO EN LOS SCRIPTS, SINO COMO UN VALOR MAS)
+
+-----------------------------------------------------
+

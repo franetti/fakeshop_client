@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
+import Home from './pages/Home.jsx'
+import ProductList from './pages/ProductList.jsx'
+import Product from './pages/Product.jsx'
+import Register from './pages/Register.jsx'
+import Login from './pages/Login.jsx'
+import Cart from './pages/Cart.jsx'
+import { useSelector } from "react-redux";
+
+
+//FALTA HACER EL RESPONSIVE DE TODO MENOS DEL HOME. 
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+  const user = useSelector(state => state.user.currentUser)
+
+  return ( 
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/products" element={<ProductList/>}>
+          <Route path="/products/:category" element={<ProductList/>}/>
+        </Route>
+        <Route path="/product/:id" element={<Product/>}/>
+        <Route path="/cart" element={<Cart/>}/>
+        <Route path="/login" element={<Login/>}/>        
+        <Route path="/register" element={<Register/>} />
+        <Route/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
